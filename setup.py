@@ -46,7 +46,7 @@ setup(
     keywords='currency-open-exchange',
     author='Anton Maistrenko',
     author_email='it2015maistrenko@gmail.com',
-    url='',
+    url='https://github.com/MaistrenkoAnton/Currency-Open-Exchange',
     license="BSD",
     packages=find_packages(),
     include_package_data=True,
