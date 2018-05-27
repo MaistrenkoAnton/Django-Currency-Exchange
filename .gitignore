@@ -1,0 +1,9 @@
+static/
+packages/
+media/
+venv/
+local/
+local.py
+.idea/
+*.sqlite3
+*.pyc
