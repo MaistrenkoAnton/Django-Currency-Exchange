@@ -1,13 +1,13 @@
 Metadata-Version: 1.1
 Name: currency-open-exchange
-Version: 0.0.2
+Version: 0.0.3
 Summary: Currency conversion
 Home-page: https://github.com/MaistrenkoAnton/Currency-Open-Exchange
 Author: Anton Maistrenko
 Author-email: it2015maistrenko@gmail.com
 License: BSD
 Description: =============================
-        currency_open_exchange
+        currency-open-exchange
         =============================
         
         Currency conversion
@@ -20,7 +20,7 @@ Description: =============================
         
         Install currency_open_exchange::
         
-            pip install currency_open_exchange
+            pip install currency-open-exchange
         
         Then use it in a project::
         
