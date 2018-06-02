@@ -9,7 +9,7 @@ CURRENCIES = {}
 
 
 def get_rate(currency):
-    date = datetime.date.today()
+    date = str(datetime.date.today())
     if currency in CURRENCIES and len(CURRENCIES[currency]) == 2 and CURRENCIES[currency][0] == date:
         return CURRENCIES[currency][1]
 
@@ -37,12 +37,11 @@ def convert(amount, currency_from, currency_to):
     Convert 'amount' from 'currency_from' to 'currency_to' and return a Money
     instance of the converted amount.
     """
-    rate = get_rate
-    rate_from = rate(currency_from)
-    rate_to = rate(currency_to)
+    rate_from = get_rate(currency_from)
+    rate_to = get_rate(currency_to)
 
     if not rate_from or not rate_to:
-        logger.error("Cannot covert currency from {} to {}".format(currency_from, currency_to))
+        logger.error('Cannot covert currency from {} to {}'.format(currency_from, currency_to))
         return amount, currency_from
 
     new_amount = base_convert_money(amount, rate_from, rate_to)
