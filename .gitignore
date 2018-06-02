@@ -1,4 +1,6 @@
 static/
+build/
+dist/
 packages/
 media/
 venv/

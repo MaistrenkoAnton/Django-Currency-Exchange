@@ -1,5 +1,5 @@
 =============================
-currency_open_exchange
+currency-open-exchange
 =============================
 
 Currency conversion
@@ -12,7 +12,7 @@ Quickstart
 
 Install currency_open_exchange::
 
-    pip install currency_open_exchange
+    pip install currency-open-exchange
 
 Then use it in a project::
 
