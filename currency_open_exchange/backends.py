@@ -1,6 +1,5 @@
 import logging
 import json
-import datetime
 
 from django.core.exceptions import ImproperlyConfigured
 from django.utils import six
@@ -23,7 +22,7 @@ class RateBackend:
     def __init__(self):
         if not EXCHANGE_APP_ID:
             raise ImproperlyConfigured(
-                "OPENEXCHANGE_APP_ID setting should not be empty when using OpenExchangeBackend"
+                "EXCHANGE_APP_ID setting should not be empty when using OpenExchangeBackend"
             )
 
         self.url = "{}?app_id={}&base={}".format(EXCHANGE_URL, EXCHANGE_APP_ID, EXCHANGE_BASE_CURRENCY)

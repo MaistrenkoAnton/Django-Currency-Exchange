@@ -1,6 +1,9 @@
 import datetime
+import logging
 from decimal import Decimal
 from .models import Rate
+
+logger = logging.getLogger(__name__)
 
 CURRENCIES = {}
 
@@ -39,6 +42,7 @@ def convert(amount, currency_from, currency_to):
     rate_to = rate(currency_to)
 
     if not rate_from or not rate_to:
+        logger.error("Cannot covert currency from {} to {}".format(currency_from, currency_to))
         return amount, currency_from
 
     new_amount = base_convert_money(amount, rate_from, rate_to)
