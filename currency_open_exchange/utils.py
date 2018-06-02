@@ -1,23 +1,21 @@
+import datetime
 from decimal import Decimal
-from django.core.cache import cache
-
-from .settings import EXCHANGE_USE_CACHE, SECONDS_IN_DAY
 from .models import Rate
 
-
-def get_rate_from_cache(currency):
-    """Returns the rate from the default currency to `currency`."""
-    value = cache.get(currency)
-    if not value:
-        rate = get_rate(currency)
-        if EXCHANGE_USE_CACHE and rate:
-            cache.set(currency, rate, SECONDS_IN_DAY)
-    return value
+CURRENCIES = {}
 
 
 def get_rate(currency):
+    date = datetime.date.today()
+    if currency in CURRENCIES and len(CURRENCIES[currency]) == 2 and CURRENCIES[currency][0] == date:
+        return CURRENCIES[currency][1]
+
     rate = Rate.objects.filter(currency=currency).first()
-    return rate.value if rate else None
+    if not rate:
+        return
+
+    CURRENCIES[currency] = (date, rate.value)
+    return rate.value
 
 
 def base_convert_money(amount, rate_from, rate_to):
@@ -36,7 +34,7 @@ def convert(amount, currency_from, currency_to):
     Convert 'amount' from 'currency_from' to 'currency_to' and return a Money
     instance of the converted amount.
     """
-    rate = get_rate_from_cache if EXCHANGE_USE_CACHE else get_rate
+    rate = get_rate
     rate_from = rate(currency_from)
     rate_to = rate(currency_to)
 

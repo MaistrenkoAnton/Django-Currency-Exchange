@@ -33,7 +33,6 @@ Open an account at https://openexchangerates.org/ if you don't have one already.
 
 
     'EXCHANGE_APP_ID': 'YOUR APP ID HERE',
-    'EXCHANGE_USE_CACHE': True,
     'EXCHANGE_BASE_CURRENCY': 'USD',
 
 
