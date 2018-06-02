@@ -9,3 +9,4 @@ local.py
 .idea/
 *.sqlite3
 *.pyc
+*.egg-info
