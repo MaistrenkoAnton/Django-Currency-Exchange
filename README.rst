@@ -50,4 +50,4 @@ Here's an example of converting 10 American Dollars to Chinese Renminbi:
 .. code-block:: python
 
     from currency_open_exchange.utils import convert
-    amount, currency = convert(10, "EUR", "BRL")
+    amount, currency = convert(10, "USD", "CNY")
