@@ -4,9 +4,6 @@ currency-open-exchange
 
 Currency conversion
 
-# WORK IN PROGRESS.
-
-
 Quickstart
 ----------
 
@@ -33,7 +30,7 @@ Open an account at https://openexchangerates.org/ if you don't have one already.
 
 
     'EXCHANGE_APP_ID': 'YOUR APP ID HERE',
-    'EXCHANGE_BASE_CURRENCY': 'USD',
+    'EXCHANGE_BASE_CURRENCY': 'USD' (optional, only USD for free accounts)
 
 
 For more information on the Open Exchange Rates API, see https://openexchangerates.org/
@@ -48,10 +45,9 @@ Once your backend is setup, get the latest exchange rates::
 Convert from one currency to another
 ------------------------------------
 
-Here's an example of converting 10 Euros to Brazilian Reais:
+Here's an example of converting 10 American Dollars to Chinese Renminbi:
 
 .. code-block:: python
 
-    from moneyed import Money
     from currency_open_exchange.utils import convert
     amount, currency = convert(10, "EUR", "BRL")
